@@ -1,0 +1,23 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head> 
+    <link rel="stylesheet" href="static/style.css"> 
+    <script src="{% static 'recipe/recipe.js' %}" defer></script>
+    <title>
+      Recipe's Home
+    </title>
+ </head>
+   <body>
+    <h1 style="text-align:center">Welcome to our Recipe App</h1>
+    <br>
+    <ul>
+      <li>
+        <a href ="{%url 'login' %}"> Login </a>
+        <a href="recipes">Recipes</a>
+      </li>
+    </ul>
+    <img src="{% static 'recipe/images/recipe.jpeg' %}" alt="home" width="600" height="300">
+   </body>
+</html>

@@ -1,0 +1,34 @@
+<h1>Recipes</h1>
+<a href ="{%url 'logout' %}"> Logout </a>
+
+<h1> Search for sales records </h1>
+<hr>
+
+<form action="" method="POST">
+  {% csrf_token %}
+  {{form}}
+  <button type="submit" >search</button>
+</form>
+
+{% if recipes_df %}
+    <img src="data:image/png;base64, {{chart|safe}}">
+  {% else %}
+    <h3> no data</h3>
+  {% endif %}
+
+<table border="1" cellpadding="5" cellspacing = "5">
+   <tr>
+        <td>Books' Titles</td>
+   </tr>
+   {% for object in qs %}
+   <tr>
+      <td>
+          <a href ="{{object.get_absolute_url}}">{{object.name}}</a>
+      </td>
+      <td>
+          <img src="{{object.pic.url}}" width="150" height="200" />
+      </td>
+
+   </tr>
+   {% endfor %}
+</table>
